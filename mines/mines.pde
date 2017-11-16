@@ -1,29 +1,29 @@
 int scale = 100;
 
-/*int[][] segArray = {{0, 0, 0, 0},
-                    {0, 0, 0, 0},
-                    {0, 0, 0, 0},
-                    {0, 0, 0, 0}};*/
-                    
+int[][] segArrayOLD = {{0, 0, 0, 0},
+ {0, 0, 0, 0},
+ {0, 0, 0, 0},
+ {0, 0, 0, 0}};
+
 int[][] segArray = {{}, {}, {}, {}};
 
 void setup() {
   size(400, 400);
-  
+
   background(255);
   fill(0);
-  
+
   /*for (int i = 0; i < width / scale; i++) {
-    xSegArray = append(xSegArray, 0);
-  }
-  for (int j = 0; j < height / scale; j++) {
-    ySegArray = append(ySegArray, 0);
-  }*/
-  
+   xSegArray = append(xSegArray, 0);
+   }
+   for (int j = 0; j < height / scale; j++) {
+   ySegArray = append(ySegArray, 0);
+   }*/
+
   setArrays();
-  
+
   //print("\n" + str(segArray));
-  
+
   for (int x = 0; x * scale < width; x++) {
     line(x * scale, 0, x * scale, height);
   }
@@ -34,11 +34,11 @@ void setup() {
 
 void draw() {
   //background(255);
-  
+
   if (mousePressed) {
     checkSeg();
   }
-  
+
   for (int i = 0; i < segArray.length; i++) {
     for (int j = 0; j < segArray[i].length; j++) {
       if (segArray[i][j] == 1) {
@@ -60,17 +60,18 @@ void checkSeg() {
 }
 
 void setArrays() {
-  /*int[] second;
-  
+  int[] second = {};
+
   for (int j = 0; j < height / scale; j++) {
     second = append(second, 0);
   }
-  
+
+  /*for (int i = 0; i < width / scale; i++) {
+   segArray[i] = append(segArray[i], second);
+   }*/
+
   for (int i = 0; i < width / scale; i++) {
-    segArray[i] = append(segArray[i], second);
-  }*/
-  
-  for(int j = 0; j < height / scale; j++) {
-    segArray[j] = {0, 0, 0, 0};
+    segArray[i] = second;
+    print(str(segArray[i]));
   }
 }
