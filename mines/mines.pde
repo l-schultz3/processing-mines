@@ -1,13 +1,14 @@
-int scale = 100;
+int scale = 50;
 
 int[][] segArrayOLD = {{0, 0, 0, 0},
  {0, 0, 0, 0},
  {0, 0, 0, 0},
  {0, 0, 0, 0}};
 
-int[][] segArray = {{}, {}, {}, {}};
+int[][] segArray = {{}, {}, {}, {}, {}, {}, {}, {}};
 
 void setup() {
+  print(str(segArray.length));
   size(400, 400);
 
   background(255);
@@ -41,19 +42,27 @@ void draw() {
 
   for (int i = 0; i < segArray.length; i++) {
     for (int j = 0; j < segArray[i].length; j++) {
-      if (segArray[i][j] == 1) {
-        rect(i * scale, j * scale, scale, scale);
+      if (segArray[i][j] != 0) {
+        drawRect(i, j);
+        print("\nrect = ", str(i * scale), str(j * scale));
       }
     }
   }
+}
+
+int drawRect(int i, int j) {
+  rect(i * scale, j * scale, scale, scale);
+  
+  return(i);
 }
 
 void checkSeg() {
   for (int x = 0; x * scale < width; x++) {
     for (int y = 0; y * scale < height; y++) {
       if ((mouseX > x * scale && mouseX < x * scale + scale) && (mouseY > y * scale && mouseY < y * scale + scale)) {
-        print("\ni = " + x * scale + " j = " + y * scale);
+        //print("\nx = " + x * scale + " y = " + y * scale);
         segArray[x][y] = 1;
+        //print(str(segArray[x]));
       }
     }
   }
@@ -72,6 +81,7 @@ void setArrays() {
 
   for (int i = 0; i < width / scale; i++) {
     segArray[i] = second;
-    print(str(segArray[i]));
+    print(str(segArray[i].length));
+    //print(str(segArray[i]));
   }
 }
