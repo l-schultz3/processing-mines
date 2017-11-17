@@ -19,7 +19,11 @@ void checkSeg() {
   for (int x = 0; x * scale < width; x++) {
     for (int y = 0; y * scale < height; y++) {
       if ((mouseX > x * scale && mouseX < x * scale + scale) && (mouseY > y * scale && mouseY < y * scale + scale)) {
-        segArray[x][y] = 1;
+        if (segArray[x][y] == 0) {
+          segArray[x][y] = 1;
+        } else {
+          segArray[x][y] = 0;
+        }
       }
     }
   }
