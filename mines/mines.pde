@@ -41,19 +41,20 @@ void setup() {
       }
     }
   }
+  
+  drawShapes();
 }
 
 void draw() {
-  background(255);
-
   if (mousePressed) {
     if (pressed == false) {
       checkSeg();
+        
+      background(255);
+      drawShapes();
     }
     pressed = true;
   } else {
     pressed = false;
   }
-  
-  drawShapes();
 }
