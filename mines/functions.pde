@@ -8,8 +8,10 @@ void drawShapes() {
   
   for (int i = 0; i < segArray.length; i++) {
     for (int j = 0; j < segArray[i].length; j++) {
-      if (segArray[i][j] != 0) {
+      if (segArray[i][j] != 0 && segArray[i][j] != 9) {
         text(str(segArray[i][j]), i * scale, j * scale, scale, scale);
+      } else if (segArray[i][j] == 9) {
+        image(mine, i * scale, j * scale, scale, scale);
       }
     }
   }
