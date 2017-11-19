@@ -49,7 +49,7 @@ int checkAdjacent(int tiley, int tilex) {
     if (segArray[tiley-1][tilex] == 9) {
       segArray[tiley][tilex] += 1;
     }
-    if (tilex + 1 < 9) {
+    if (tilex + 1 < width / scale) {
       if (segArray[tiley-1][tilex+1] == 9) {
         segArray[tiley][tilex] += 1;
         }
@@ -62,13 +62,13 @@ int checkAdjacent(int tiley, int tilex) {
     }
   }
 
-  if (tilex + 1 < 9) {
+  if (tilex + 1 < width / scale) {
     if (segArray[tiley][tilex+1] == 9) {
       segArray[tiley][tilex] += 1;
     }
   }
 
-  if (tiley + 1 < 9) {
+  if (tiley + 1 < width / scale) {
     if (tilex - 1 >= 0) {
       if (segArray[tiley+1][tilex-1] == 9) {
         segArray[tiley][tilex] += 1;
@@ -76,7 +76,7 @@ int checkAdjacent(int tiley, int tilex) {
       if (segArray[tiley+1][tilex] == 9) {
         segArray[tiley][tilex] += 1;
       }
-      if (tilex + 1 < 9) {
+      if (tilex + 1 < width / scale) {
         if (segArray[tiley+1][tilex+1] == 9) {
           segArray[tiley][tilex] += 1;
         }
