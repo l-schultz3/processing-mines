@@ -9,7 +9,7 @@ void drawShapes() {
   for (int i = 0; i < segArray.length; i++) {
     for (int j = 0; j < segArray[i].length; j++) {
       if (segArray[i][j] != 0) {
-        rect(i * scale, j * scale, scale, scale);
+        text(str(segArray[i][j]), i * scale, j * scale, scale, scale);
       }
     }
   }
@@ -35,4 +35,52 @@ void setArrays() {
       segArray[i] = append(segArray[i], 0);
     }
   }
+}
+
+int checkAdjacent(int tiley, int tilex) {
+  if (tiley - 1 >= 0) {
+    if (tilex - 1 >= 0) {
+      if (segArray[tiley-1][tilex-1] == 9) {
+        segArray[tiley][tilex] += 1;
+      }
+    }
+    if (segArray[tiley-1][tilex] == 9) {
+      segArray[tiley][tilex] += 1;
+    }
+    if (tilex + 1 < 15) {
+      if (segArray[tiley-1][tilex+1] == 9) {
+        segArray[tiley][tilex] += 1;
+        }
+      }
+    }
+
+  if (tilex - 1 >= 0) {
+    if (segArray[tiley][tilex-1] == 9) {
+      segArray[tiley][tilex] += 1;
+    }
+  }
+
+  if (tilex + 1 < 15) {
+    if (segArray[tiley][tilex+1] == 9) {
+      segArray[tiley][tilex] += 1;
+    }
+  }
+
+  if (tiley + 1 < 15) {
+    if (tilex - 1 >= 0) {
+      if (segArray[tiley+1][tilex-1] == 9) {
+        segArray[tiley][tilex] += 1;
+      }
+      if (segArray[tiley+1][tilex] == 9) {
+        segArray[tiley][tilex] += 1;
+      }
+      if (tilex + 1 < 15) {
+        if (segArray[tiley+1][tilex+1] == 9) {
+          segArray[tiley][tilex] += 1;
+        }
+      }
+    }
+  }
+  
+  return tilex;
 }
