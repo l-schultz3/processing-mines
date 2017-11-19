@@ -3,17 +3,17 @@ PImage mine;
 int scale = 20;
 boolean pressed = false;
 
-int maxMines = 10;
+int maxMines = 40;
 int currentMines = 0;
 int adjacent = 0;
 
-int[][] segArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}};
-int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}};
+int[][] segArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}};
+int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}};
 
 void setup() {
   mine = loadImage("mine.png");
   
-  size(180, 180);
+  size(321, 321);
   background(255);
   fill(0);
   textAlign(CENTER);
