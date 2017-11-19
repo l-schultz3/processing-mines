@@ -3,18 +3,19 @@ PImage mine;
 int scale = 20;
 boolean pressed = false;
 
-int maxMines = 40;
+int maxMines = 10;
 int currentMines = 0;
 int adjacent = 0;
 
-int[][] segArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}};
+int[][] segArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}};
 
 void setup() {
   mine = loadImage("mine.png");
   
-  size(800, 800);
+  size(180, 180);
   background(255);
   fill(0);
+  textAlign(CENTER);
   
   setArrays();
   

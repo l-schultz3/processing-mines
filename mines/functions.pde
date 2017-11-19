@@ -22,9 +22,9 @@ void checkSeg() {
     for (int y = 0; y * scale < height; y++) {
       if ((mouseX > x * scale && mouseX < x * scale + scale) && (mouseY > y * scale && mouseY < y * scale + scale)) {
         if (segArray[x][y] == 0) {
-          segArray[x][y] = 1;
+          //segArray[x][y] = 1;
         } else {
-          segArray[x][y] = 0;
+          //segArray[x][y] = 0;
         }
       }
     }
@@ -49,7 +49,7 @@ int checkAdjacent(int tiley, int tilex) {
     if (segArray[tiley-1][tilex] == 9) {
       segArray[tiley][tilex] += 1;
     }
-    if (tilex + 1 < 15) {
+    if (tilex + 1 < 9) {
       if (segArray[tiley-1][tilex+1] == 9) {
         segArray[tiley][tilex] += 1;
         }
@@ -62,13 +62,13 @@ int checkAdjacent(int tiley, int tilex) {
     }
   }
 
-  if (tilex + 1 < 15) {
+  if (tilex + 1 < 9) {
     if (segArray[tiley][tilex+1] == 9) {
       segArray[tiley][tilex] += 1;
     }
   }
 
-  if (tiley + 1 < 15) {
+  if (tiley + 1 < 9) {
     if (tilex - 1 >= 0) {
       if (segArray[tiley+1][tilex-1] == 9) {
         segArray[tiley][tilex] += 1;
@@ -76,7 +76,7 @@ int checkAdjacent(int tiley, int tilex) {
       if (segArray[tiley+1][tilex] == 9) {
         segArray[tiley][tilex] += 1;
       }
-      if (tilex + 1 < 15) {
+      if (tilex + 1 < 9) {
         if (segArray[tiley+1][tilex+1] == 9) {
           segArray[tiley][tilex] += 1;
         }
