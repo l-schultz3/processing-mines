@@ -8,6 +8,7 @@ int currentMines = 0;
 int adjacent = 0;
 
 int[][] segArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}};
+int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}};
 
 void setup() {
   mine = loadImage("mine.png");
