@@ -42,7 +42,7 @@ int expandOnEmpty(int x, int y) {
     }
   }
   
-  if (x - 1 > 0) {
+  if (x - 1 >= 0) {
     shownArray[x - 1][y] = segArray[x - 1][y];
   }
   
@@ -57,7 +57,7 @@ int expandOnEmpty(int x, int y) {
       shownArray[x - 1][y + 1] = segArray[x - 1][y + 1];
     }
     
-    if (x + 1 > width / scale) {
+    if (x + 1 < width / scale) {
       shownArray[x + 1][y + 1] = segArray[x + 1][y + 1];
     }
   }

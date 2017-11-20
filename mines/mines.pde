@@ -65,4 +65,6 @@ void draw() {
   } else {
     pressed = false;
   }
+  
+  checkEmpty();
 }
