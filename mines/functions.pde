@@ -86,6 +86,8 @@ int checkSegNonStart(int x, int y) {
     if (shownArray[x][y] == 12) {
       expandOnEmpty(x, y);
       checkEmpty();
+    } else if (shownArray[x][y] == 9) {
+      shownArray = segArray;
     }
   } else {
     if (shownArray[x][y] == 10) {
