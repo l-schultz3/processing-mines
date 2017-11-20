@@ -30,10 +30,10 @@ void drawShapes() {
 }
 
 int expandOnEmpty(int x, int y) {
-  if (y - 1 > 0) {
+  if (y - 1 >= 0) {
     shownArray[x][y - 1] = segArray[x][y - 1];
     
-    if (x - 1 > 0) {
+    if (x - 1 >= 0) {
       shownArray[x - 1][y - 1] = segArray[x - 1][y - 1];
     }
     
@@ -53,7 +53,7 @@ int expandOnEmpty(int x, int y) {
   if (y + 1 < width / scale) {
     shownArray[x][y + 1] = segArray[x][y + 1];
     
-    if (x - 1 > 0) {
+    if (x - 1 >= 0) {
       shownArray[x - 1][y + 1] = segArray[x - 1][y + 1];
     }
     
@@ -81,22 +81,46 @@ void checkSeg() {
   for (int x = 0; x * scale < width; x++) {
     for (int y = 0; y * scale < height; y++) {
       if ((mouseX > x * scale && mouseX < x * scale + scale) && (mouseY > y * scale && mouseY < y * scale + scale)) {
-        if (mouseButton == LEFT) {
-          shownArray[x][y] = segArray[x][y];
-          if (shownArray[x][y] == 12) {
-            expandOnEmpty(x, y);
-            checkEmpty();
-          }
+        if (start) {
+          checkSegStart(x, y);
+          checkSegNonStart(x, y);
         } else {
-          if (shownArray[x][y] == 10) {
-            shownArray[x][y] = 11;
-          } else if (shownArray[x][y] == 11) {
-            shownArray[x][y] = 10;
-          }
+          checkSegNonStart(x, y);
         }
       }
     }
   }
+}
+
+int checkSegStart(int x, int y) {
+  segArray[x - 1][y - 1] = 13;
+  segArray[x][y - 1] = 13;
+  segArray[x + 1][y - 1] = 13;
+  segArray[x - 1][y] = 13;
+  segArray[x][y] = 13;
+  segArray[x + 1][y] = 13;
+  segArray[x - 1][y + 1] = 13;
+  segArray[x][y + 1] = 13;
+  segArray[x + 1][y + 1] = 13;
+  setMines();
+  return x;
+}
+
+int checkSegNonStart(int x, int y) {
+  if (mouseButton == LEFT) {
+    shownArray[x][y] = segArray[x][y];
+    if (shownArray[x][y] == 12) {
+      expandOnEmpty(x, y);
+      checkEmpty();
+    }
+  } else {
+    if (shownArray[x][y] == 10) {
+      shownArray[x][y] = 11;
+    } else if (shownArray[x][y] == 11) {
+      shownArray[x][y] = 10;
+    }
+  }
+  return x;
 }
 
 void setArrays() {
@@ -159,4 +183,31 @@ int checkAdjacent(int tiley, int tilex) {
   }
   
   return tilex;
+}
+
+void setMines() {
+  while (currentMines < maxMines) {
+    for (int i = 0; i < segArray.length; i++) {
+      for (int j = 0; j < segArray[i].length; j++) {
+        if (segArray[i][j] == 0) {
+          float posMines = random(10);
+          if (posMines < 1.0) {
+            segArray[i][j] = 9;
+            currentMines += 1;
+          }
+        }
+      }
+    }
+  }
+  
+  for (int i = 0; i < segArray.length; i++) {
+    for (int j = 0; j < segArray[i].length; j++) {
+      if (segArray[i][j] == 13) {
+        segArray[i][j] = 0;
+      }
+      if (segArray[i][j] != 9) {
+        checkAdjacent(i, j);
+      }
+    }
+  }
 }
