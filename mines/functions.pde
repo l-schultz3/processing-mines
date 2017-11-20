@@ -45,15 +45,37 @@ void checkSeg() {
 }
 
 int checkSegStart(int x, int y) {
-  segArray[x - 1][y - 1] = 13;
-  segArray[x][y - 1] = 13;
-  segArray[x + 1][y - 1] = 13;
-  segArray[x - 1][y] = 13;
   segArray[x][y] = 13;
-  segArray[x + 1][y] = 13;
-  segArray[x - 1][y + 1] = 13;
-  segArray[x][y + 1] = 13;
-  segArray[x + 1][y + 1] = 13;
+  
+  if (y - 1 >= 0) {
+    if (x - 1 >= 0) {
+      segArray[x - 1][y - 1] = 13;
+    }
+    if (x + 1 < width / scale) {
+      segArray[x + 1][y - 1] = 13;
+    }
+    
+    segArray[x][y - 1] = 13;
+  }
+  
+  if (x - 1 >= 0) {
+    segArray[x - 1][y] = 13;
+  }
+  if (x + 1 < width / scale) {
+    segArray[x + 1][y] = 13;
+  }
+  
+  if (y + 1 < height / scale) {
+    if (x - 1 >= 0) {
+      segArray[x - 1][y + 1] = 13;
+    }
+    if (x + 1 < width / scale) {
+      segArray[x + 1][y + 1] = 13;
+    }
+    
+    segArray[x][y + 1] = 13;
+  }
+  
   setMines();
   return x;
 }

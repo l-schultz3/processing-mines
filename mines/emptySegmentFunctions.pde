@@ -19,7 +19,7 @@ int expandOnEmpty(int x, int y) {
     shownArray[x + 1][y] = segArray[x + 1][y];
   }
   
-  if (y + 1 < width / scale) {
+  if (y + 1 < height / scale) {
     shownArray[x][y + 1] = segArray[x][y + 1];
     
     if (x - 1 >= 0) {

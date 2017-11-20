@@ -64,7 +64,7 @@ int checkAdjacent(int tiley, int tilex) {
     }
   }
 
-  if (tiley + 1 < width / scale) {
+  if (tiley + 1 < height / scale) {
     if (tilex - 1 >= 0) {
       if (segArray[tiley+1][tilex-1] == 9) {
         segArray[tiley][tilex] += 1;
