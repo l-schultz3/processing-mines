@@ -19,6 +19,9 @@ void drawShapes() {
         rect(i * scale, j * scale, scale, scale);
         fill(0);
       } else if (shownArray[i][j] == 11) {
+        fill(200);
+        rect(i * scale, j * scale, scale, scale);
+        fill(0);
         image(flag, i * scale, j * scale, scale, scale);
       } else {
         fill(255);
