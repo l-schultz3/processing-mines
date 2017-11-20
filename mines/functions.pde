@@ -1,4 +1,6 @@
 void drawShapes() {
+  background(255);
+  
   for (int x = 0; x * scale < width; x++) {
     line(x * scale, 0, x * scale, height);
   }
@@ -16,6 +18,8 @@ void drawShapes() {
         fill(200);
         rect(i * scale, j * scale, scale, scale);
         fill(0);
+      } else if (shownArray[i][j] == 11) {
+        image(flag, i * scale, j * scale, scale, scale);
       } else {
         fill(255);
         rect(i * scale, j * scale, scale, scale);
@@ -25,17 +29,59 @@ void drawShapes() {
   }
 }
 
+int expandOnEmpty(int x, int y) {
+  if (y - 1 > 0) {
+    shownArray[x][y - 1] = segArray[x][y - 1];
+    
+    if (x - 1 > 0) {
+      shownArray[x - 1][y - 1] = segArray[x - 1][y - 1];
+    }
+    
+    if (x + 1 < width / scale) {
+      shownArray[x + 1][y - 1] = segArray[x + 1][y - 1];
+    }
+  }
+  
+  if (x - 1 > 0) {
+    shownArray[x - 1][y] = segArray[x - 1][y];
+  }
+  
+  if (x + 1 < width / scale) {
+    shownArray[x + 1][y] = segArray[x + 1][y];
+  }
+  
+  if (y + 1 < width / scale) {
+    shownArray[x][y + 1] = segArray[x][y + 1];
+    
+    if (x - 1 > 0) {
+      shownArray[x - 1][y + 1] = segArray[x - 1][y + 1];
+    }
+    
+    if (x + 1 > width / scale) {
+      shownArray[x + 1][y + 1] = segArray[x + 1][y + 1];
+    }
+  }
+  
+  drawShapes();
+  return x;
+}
+
 void checkSeg() {
   for (int x = 0; x * scale < width; x++) {
     for (int y = 0; y * scale < height; y++) {
       if ((mouseX > x * scale && mouseX < x * scale + scale) && (mouseY > y * scale && mouseY < y * scale + scale)) {
-        /*if (segArray[x][y] == 0) {
-          //segArray[x][y] = 1;
+        if (mouseButton == LEFT) {
+          shownArray[x][y] = segArray[x][y];
+          if (shownArray[x][y] == 0) {
+            expandOnEmpty(x, y);
+          }
         } else {
-          //segArray[x][y] = 0;
-        }*/
-        
-        shownArray[x][y] = segArray[x][y];
+          if (shownArray[x][y] == 10) {
+            shownArray[x][y] = 11;
+          } else if (shownArray[x][y] == 11) {
+            shownArray[x][y] = 10;
+          }
+        }
       }
     }
   }

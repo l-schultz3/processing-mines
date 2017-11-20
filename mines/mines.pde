@@ -1,4 +1,5 @@
 PImage mine;
+PImage flag;
 
 int scale = 20;
 boolean pressed = false;
@@ -12,6 +13,7 @@ int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
 
 void setup() {
   mine = loadImage("mine.png");
+  flag = loadImage("flag.png");
   
   size(321, 321);
   background(255);
@@ -46,11 +48,17 @@ void setup() {
 }
 
 void draw() {
-  if (mousePressed) {
-    if (pressed == false) {
+  if (mousePressed && (mouseButton == LEFT)) {
+    if (!pressed) {
       checkSeg();
         
-      background(255);
+      drawShapes();
+    }
+    pressed = true;
+  } else if (mousePressed && (mouseButton == RIGHT)) {
+    if (!pressed) {
+      checkSeg();
+      
       drawShapes();
     }
     pressed = true;
