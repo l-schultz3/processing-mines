@@ -1,4 +1,4 @@
-void checkWin() {
+/*void checkWin() {
   int mineCount = 0;
   
   for (int x = 0; x < shownArray.length; x++) {
@@ -7,11 +7,11 @@ void checkWin() {
           
       } else {
         if (segArray[x][y] != 9) {
-          print("\n x = ", x, "\n y = ", y);
+          //print("\n x = ", x, "\n y = ", y);
           break;
         } else {
           mineCount += 1;
-          //print("\nmineCount = ", str(mineCount));
+          print("\nmineCount = ", str(mineCount));
           
           if (mineCount == currentMines) {
             win = true;
@@ -20,7 +20,7 @@ void checkWin() {
       }
     }
   }
-}
+}*/
 
 void onWin() {
   fill(255, 0, 0);

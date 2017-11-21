@@ -14,6 +14,10 @@ int adjacent = 0;
 int[][] segArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}};
 int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}};
 
+int totalArea;
+int totalClicks;
+int currentClicks;
+
 void setup() {
   mine = loadImage("mine.png");
   flag = loadImage("flag.png");
@@ -26,15 +30,23 @@ void setup() {
   
   setArrays();
   drawShapes();
+  
+  totalArea = segArray.length * segArray[0].length;
+  totalClicks = totalArea - maxMines;
+  
 }
 
 void draw() {
+  print("\ntotalClicks = ", str(totalClicks), "\ncurrentClicks = ", str(currentClicks));
+  
   if (start) {
     if (mousePressed && (mouseButton == LEFT)) {
       if (!pressed) {
         checkSeg();
         
         drawShapes();
+        
+        currentClicks += 1;
       }
       pressed = true;
       start = false;
@@ -51,8 +63,8 @@ void activeGameDraw() {
         
       drawShapes();
       
-      checkWin();
-            //print("\ncurrentMines = ", str(currentMines));
+      //checkWin();
+      //print("\ncurrentMines = ", str(currentMines));
     }
     pressed = true;
   } else if (mousePressed && (mouseButton == RIGHT)) {

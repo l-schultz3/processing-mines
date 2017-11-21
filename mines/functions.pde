@@ -90,6 +90,7 @@ int checkSegStart(int x, int y) {
 
 int checkSegNonStart(int x, int y) {
   if (mouseButton == LEFT) {
+    currentClicks += 1;
     if (shownArray[x][y] != 11) {
       shownArray[x][y] = segArray[x][y];
       if (shownArray[x][y] == 12) {
