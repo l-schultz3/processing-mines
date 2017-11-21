@@ -90,12 +90,14 @@ int checkSegStart(int x, int y) {
 
 int checkSegNonStart(int x, int y) {
   if (mouseButton == LEFT) {
-    shownArray[x][y] = segArray[x][y];
-    if (shownArray[x][y] == 12) {
-      expandOnEmpty(x, y);
-      checkEmpty();
-    } else if (shownArray[x][y] == 9) {
-      onLose();
+    if (shownArray[x][y] != 11) {
+      shownArray[x][y] = segArray[x][y];
+      if (shownArray[x][y] == 12) {
+        expandOnEmpty(x, y);
+        checkEmpty();
+      } else if (shownArray[x][y] == 9) {
+        onLose();
+      }
     }
   } else {
     if (shownArray[x][y] == 10) {
