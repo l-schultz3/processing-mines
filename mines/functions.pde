@@ -23,6 +23,11 @@ void drawShapes() {
         rect(i * scale, j * scale, scale, scale);
         fill(0);
         image(flag, i * scale, j * scale, scale, scale);
+      } else if (shownArray[i][j] == 14) {
+        fill(200);
+        rect(i * scale, j * scale, scale, scale);
+        fill(0);
+        image(wrongFlag, i * scale, j * scale, scale, scale);
       } else {
         fill(255);
         rect(i * scale, j * scale, scale, scale);

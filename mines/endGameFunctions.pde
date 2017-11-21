@@ -10,7 +10,6 @@ void checkWin() {
           break;
         } else {
           mineCount += 1;
-          print("\n", mineCount);
         }
       }
     }
@@ -29,7 +28,11 @@ void onWin() {
 void onLose() {
   for (int x = 0; x < shownArray.length; x++) {
     for (int y = 0; y < shownArray.length; y++) {
-      shownArray[x][y] = segArray[x][y];
+      if (shownArray[x][y] == 11 && segArray[x][y] != 9) {
+        shownArray[x][y] = 14;
+      } else if (shownArray[x][y] != 11) {
+        shownArray[x][y] = segArray[x][y];
+      }
     }
   }
 }
