@@ -5,6 +5,7 @@ PImage wrongFlag;
 int scale = 20;
 boolean pressed = false;
 boolean start = true;
+boolean win = false;
 
 int maxMines = 40;
 int currentMines = 0;
@@ -28,7 +29,6 @@ void setup() {
 }
 
 void draw() {
-  print("\n", str(currentMines));
   if (start) {
     if (mousePressed && (mouseButton == LEFT)) {
       if (!pressed) {
@@ -51,7 +51,8 @@ void activeGameDraw() {
         
       drawShapes();
       
-      //checkWin();
+      checkWin();
+            //print("\ncurrentMines = ", str(currentMines));
     }
     pressed = true;
   } else if (mousePressed && (mouseButton == RIGHT)) {
@@ -66,4 +67,8 @@ void activeGameDraw() {
   }
   
   checkEmpty();
+  
+  if (win) {
+    onWin();
+  }
 }

@@ -7,22 +7,25 @@ void checkWin() {
           
       } else {
         if (segArray[x][y] != 9) {
+          print("\n x = ", x, "\n y = ", y);
           break;
         } else {
           mineCount += 1;
+          //print("\nmineCount = ", str(mineCount));
+          
+          if (mineCount == currentMines) {
+            win = true;
+          }
         }
       }
     }
-  }
-  
-  if (mineCount == currentMines) {
-    onWin();
   }
 }
 
 void onWin() {
   fill(255, 0, 0);
   rect(0, 0, width, height);
+  print("True");
 }
 
 void onLose() {
