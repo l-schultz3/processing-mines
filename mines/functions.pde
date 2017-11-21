@@ -90,7 +90,7 @@ int checkSegNonStart(int x, int y) {
       expandOnEmpty(x, y);
       checkEmpty();
     } else if (shownArray[x][y] == 9) {
-      shownArray = segArray;
+      onLose();
     }
   } else {
     if (shownArray[x][y] == 10) {

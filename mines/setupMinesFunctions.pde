@@ -13,7 +13,7 @@ void setMines() {
       for (int j = 0; j < segArray[i].length; j++) {
         if (segArray[i][j] == 0) {
           float posMines = random(10);
-          if (posMines < 1.0) {
+          if (posMines < 0.5) {
             segArray[i][j] = 9;
             currentMines += 1;
           }

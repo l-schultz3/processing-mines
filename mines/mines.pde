@@ -1,32 +1,34 @@
 PImage mine;
 PImage flag;
+PImage wrongFlag;
 
 int scale = 20;
 boolean pressed = false;
 boolean start = true;
 
-int maxMines = 40;
+int maxMines = 10;
 int currentMines = 0;
 int adjacent = 0;
 
-int[][] segArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}};
-int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}};
+int[][] segArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}};
+int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}};
 
 void setup() {
   mine = loadImage("mine.png");
   flag = loadImage("flag.png");
+  wrongFlag = loadImage("wrongFlag.png");
   
-  size(321, 321);
+  size(181, 181);
   background(255);
   fill(0);
   textAlign(CENTER);
   
   setArrays();
-  
   drawShapes();
 }
 
 void draw() {
+  print("\n", str(currentMines));
   if (start) {
     if (mousePressed && (mouseButton == LEFT)) {
       if (!pressed) {
@@ -48,6 +50,8 @@ void activeGameDraw() {
       checkSeg();
         
       drawShapes();
+      
+      //checkWin();
     }
     pressed = true;
   } else if (mousePressed && (mouseButton == RIGHT)) {
