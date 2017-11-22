@@ -7,7 +7,7 @@ boolean pressed = false;
 boolean start = true;
 boolean win = false;
 
-int maxMines = 40;
+int maxMines = 1;
 int currentMines = 0;
 int adjacent = 0;
 
@@ -16,7 +16,7 @@ int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
 
 int totalArea;
 int totalClicks;
-int currentClicks;
+int currentClicks = 0;
 
 void setup() {
   mine = loadImage("mine.png");
@@ -45,8 +45,6 @@ void draw() {
         checkSeg();
         
         drawShapes();
-        
-        currentClicks += 1;
       }
       pressed = true;
       start = false;
@@ -63,7 +61,6 @@ void activeGameDraw() {
         
       drawShapes();
       
-      //checkWin();
       //print("\ncurrentMines = ", str(currentMines));
     }
     pressed = true;
@@ -79,6 +76,7 @@ void activeGameDraw() {
   }
   
   checkEmpty();
+  checkWin();
   
   if (win) {
     onWin();

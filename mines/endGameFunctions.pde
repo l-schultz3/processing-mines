@@ -1,5 +1,5 @@
-/*void checkWin() {
-  int mineCount = 0;
+void checkWin() {
+  /*int mineCount = 0;
   
   for (int x = 0; x < shownArray.length; x++) {
     for (int y = 0; y < shownArray[x].length; y++) {
@@ -19,8 +19,22 @@
         }
       }
     }
+  }*/
+  
+  currentClicks = 0;
+  
+  for (int x = 0; x < shownArray.length; x++) {
+    for (int y = 0; y < shownArray[x].length; y++) {
+      if (shownArray[x][y] == segArray[x][y] && segArray[x][y] != 9) {
+        currentClicks += 1;
+      }
+    }
   }
-}*/
+  
+  if (currentClicks == totalClicks) {
+    win = true;
+  }
+}
 
 void onWin() {
   fill(255, 0, 0);
