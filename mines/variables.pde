@@ -9,6 +9,8 @@ boolean start = true;
 boolean win = false;
 boolean lose = false;
 
+boolean checkForEmpty = false;
+
 int maxMines = 40;
 int currentMines = 0;
 int adjacent = 0;

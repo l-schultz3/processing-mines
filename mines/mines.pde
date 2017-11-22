@@ -33,6 +33,7 @@ void activeGameDraw() {
     if (!pressed) {
       checkSeg();   
       drawShapes();
+      checkForEmpty = true;
     }
     pressed = true;
   } else if (mousePressed && (mouseButton == RIGHT)) {
@@ -44,9 +45,11 @@ void activeGameDraw() {
   } else {
     pressed = false;
   }
-  
-  checkEmpty();
   checkWin();
+  
+  if (checkForEmpty) {
+    checkEmpty();
+  }
   
   if (win) {
     onWin();
@@ -59,6 +62,8 @@ void activeGameDraw() {
       resetGame();
     }
   }
+  
+  checkForEmpty = false;
 }
 
 void resetGame() {
