@@ -50,7 +50,7 @@ void onLose() {
     for (int y = 0; y < shownArray.length; y++) {
       if (shownArray[x][y] == 11 && segArray[x][y] != 9) {
         shownArray[x][y] = 14;
-      } else {
+      } else if (shownArray[x][y] != 14) {
         shownArray[x][y] = segArray[x][y];
       }
     }

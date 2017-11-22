@@ -36,13 +36,11 @@ int expandOnEmpty(int x, int y) {
 }
 
 void checkEmpty() {
-  for (int i = 0; i <= 5; i++) {
-    for (int x = 0; x * scale < width - scale; x++) {
-      for (int y = 0; y * scale < height - scale; y++) {
-        if (shownArray[x][y] == 12) {
-          expandOnEmpty(x, y);
-          shownArray[x][y] = 0;
-        }
+  for (int x = 0; x * scale < width - scale; x++) {
+    for (int y = 0; y * scale < height - scale; y++) {
+      if (shownArray[x][y] == 12) {
+        expandOnEmpty(x, y);
+        shownArray[x][y] = 0;
       }
     }
   }

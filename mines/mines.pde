@@ -2,7 +2,7 @@ void setup() {
   setArrays();
   setVariablesOnStart();
   
-  size(641, 641);
+  size(321, 321);
   background(255);
   fill(0);
   textAlign(CENTER);
@@ -33,7 +33,6 @@ void activeGameDraw() {
     if (!pressed) {
       checkSeg();   
       drawShapes();
-      checkForEmpty = true;
     }
     pressed = true;
   } else if (mousePressed && (mouseButton == RIGHT)) {
@@ -47,9 +46,8 @@ void activeGameDraw() {
   }
   checkWin();
   
-  if (checkForEmpty) {
-    checkEmpty();
-  }
+  checkEmpty();
+  
   
   if (win) {
     onWin();
