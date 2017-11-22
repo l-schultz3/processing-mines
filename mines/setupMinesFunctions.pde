@@ -22,15 +22,17 @@ void setMines() { //function to fill segArray with mines
     }
   }
   
-  for (int i = 0; i < segArray.length; i++) {
-    for (int j = 0; j < segArray[i].length; j++) { //loops through every segment
-      if (segArray[i][j] == 13) { //if the segment has been reserved (segments are reserved around and including the segment that was first pressed so that you don't start the game by losing
-        segArray[i][j] = 0; //set it to 0 because it doesn't need to be reserved anymore
+  for (int x = 0; x < segArray.length; x++) {
+    for (int y = 0; y < segArray[x].length; y++) { //loops through every segment
+      if (segArray[x][y] == 13) { //if the segment has been reserved (segments are reserved around and including the segment that was first pressed so that you don't start the game by losing
+        segArray[x][y] = 0; //set it to 0 because it doesn't need to be reserved anymore
       }
-      if (segArray[i][j] != 9) {
-        checkAdjacent(i, j); //for every segment that isn't a mine, check how many mines are around that segment
+      if (segArray[x][y] != 9) {
+        checkAdjacent(x, y); //for every segment that isn't a mine, check how many mines are around that segment
       }
     }
+    /*print("\n");
+    print(str(segArray[x]));*/
   }
 }
 

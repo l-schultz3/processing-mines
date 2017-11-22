@@ -24,5 +24,6 @@ void setVariablesOnStart() {
   wrongFlag = loadImage("wrongFlag.png");
   
   totalArea = segArray.length * segArray[0].length;
+  print(str(totalArea));
   totalClicks = totalArea - maxMines;
 }

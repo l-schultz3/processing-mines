@@ -25,11 +25,14 @@ void checkWin() {
   
   for (int x = 0; x < shownArray.length; x++) {
     for (int y = 0; y < shownArray[x].length; y++) {
-      if (shownArray[x][y] == segArray[x][y] && segArray[x][y] != 9) {
+      if (shownArray[x][y] == segArray[x][y]) {
+        //print("\nshownArray[x][y] = ", str(shownArray[x][y]));
         currentClicks += 1;
       }
     }
   }
+  
+  //print("\ncurrentClicks = ", str(currentClicks));
   
   if (currentClicks == totalClicks) {
     win = true;

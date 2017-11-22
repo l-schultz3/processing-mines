@@ -1,6 +1,6 @@
 void setup() {
-  setVariablesOnStart();
   setArrays();
+  setVariablesOnStart();
   
   size(321, 321);
   background(255);
@@ -11,7 +11,7 @@ void setup() {
 }
 
 void draw() {
-  print("\ntotalClicks = ", str(totalClicks), "\ncurrentClicks = ", str(currentClicks));
+  //print("\ntotalClicks = ", str(totalClicks), "\ncurrentClicks = ", str(currentClicks));
   
   if (start) {
     if (mousePressed && (mouseButton == LEFT)) {
