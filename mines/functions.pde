@@ -97,7 +97,7 @@ int checkSegNonStart(int x, int y) {
         expandOnEmpty(x, y);
         checkEmpty();
       } else if (shownArray[x][y] == 9) {
-        onLose();
+        lose = true;
       }
     }
   } else {

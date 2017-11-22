@@ -2,10 +2,11 @@ void setup() {
   setArrays();
   setVariablesOnStart();
   
-  size(321, 321);
+  size(641, 641);
   background(255);
   fill(0);
   textAlign(CENTER);
+  textSize(scale * 0.75);
   
   drawShapes();
 }
@@ -50,4 +51,17 @@ void activeGameDraw() {
   if (win) {
     onWin();
   }
+  
+  if (lose) {
+    onLose();
+    
+    if (keyPressed && key == ' ') {
+      resetGame();
+    }
+  }
+}
+
+void resetGame() {
+  resetVariables();
+  drawShapes();
 }

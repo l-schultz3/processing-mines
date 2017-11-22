@@ -50,9 +50,17 @@ void onLose() {
     for (int y = 0; y < shownArray.length; y++) {
       if (shownArray[x][y] == 11 && segArray[x][y] != 9) {
         shownArray[x][y] = 14;
-      } else if (shownArray[x][y] != 11) {
+      } else {
         shownArray[x][y] = segArray[x][y];
       }
     }
   }
+  
+  fill(255, 0, 0, 67);
+  rect(0, 0, width, height);
+  fill(0, 0, 0, 255);
+  
+  textSize(scale * 3.45);
+  text("SPACE\nTO\nRESTART", 0, 0, width, height);
+  textSize(scale * 0.75);
 }
