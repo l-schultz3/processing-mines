@@ -11,9 +11,7 @@ void setup() {
   drawShapes();
 }
 
-void draw() {
-  //print("\ntotalClicks = ", str(totalClicks), "\ncurrentClicks = ", str(currentClicks));
-  
+void draw() {  
   if (start) {
     if (mousePressed && (mouseButton == LEFT)) {
       if (!pressed) {
@@ -51,6 +49,10 @@ void activeGameDraw() {
   
   if (win) {
     onWin();
+    
+    if (keyPressed && key == ' ') {
+      resetGame();
+    }
   }
   
   if (lose) {
@@ -60,8 +62,6 @@ void activeGameDraw() {
       resetGame();
     }
   }
-  
-  checkForEmpty = false;
 }
 
 void resetGame() {

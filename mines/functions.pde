@@ -28,6 +28,8 @@ void drawShapes() { //function to draw shapes
         rect(i * scale, j * scale, scale, scale);
         fill(0);
         image(wrongFlag, i * scale, j * scale, scale, scale); //display an image of a flag with an X over it
+      } else if (shownArray[i][j] == 0) {
+        shownArray[i][j] = 12;
       } else { //if the segment has no adjacent mines
         fill(255); //display a white segment
         rect(i * scale, j * scale, scale, scale);

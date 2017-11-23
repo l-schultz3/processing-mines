@@ -31,8 +31,6 @@ void setMines() { //function to fill segArray with mines
         checkAdjacent(x, y); //for every segment that isn't a mine, check how many mines are around that segment
       }
     }
-    /*print("\n");
-    print(str(segArray[x]));*/
   }
 }
 

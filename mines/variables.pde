@@ -9,11 +9,8 @@ boolean start = true;
 boolean win = false;
 boolean lose = false;
 
-boolean checkForEmpty = false;
-
-int maxMines = 40;
+int maxMines = 20;
 int currentMines = 0;
-int adjacent = 0;
 
 int[][] segArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}};
 int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}};
@@ -28,7 +25,6 @@ void setVariablesOnStart() {
   wrongFlag = loadImage("wrongFlag.png");
   
   totalArea = segArray.length * segArray[0].length;
-  print(str(totalArea));
   totalClicks = totalArea - maxMines;
 }
 
@@ -40,8 +36,6 @@ void resetVariables() {
   lose = false;
 
   currentMines = 0;
-  adjacent = 0;
-
   currentClicks = 0;
   
   for (int x = 0; x < segArray.length; x++) {
