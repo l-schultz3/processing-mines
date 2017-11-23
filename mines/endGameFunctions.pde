@@ -1,15 +1,15 @@
 void checkWin() {
-  currentClicks = 0;
+  int currentClicks = 0; //local variable used to see how many non-mine segments have been activated, or "clicked"
   
   for (int x = 0; x < shownArray.length; x++) {
-    for (int y = 0; y < shownArray[x].length; y++) {
-      if (shownArray[x][y] == segArray[x][y]) {
-        currentClicks += 1;
+    for (int y = 0; y < shownArray[x].length; y++) { //loops through every segment
+      if (shownArray[x][y] == segArray[x][y]) { //if the shown segment is equal to the master field, meaning that it has been activated or "clicked"
+        currentClicks += 1; //add one to the currentClicks variable
       }
     }
   }
   
-  if (currentClicks == totalClicks) {
+  if (currentClicks == totalClicks) { //if every non-mine segment has been activated
     win = true;
   }
 }

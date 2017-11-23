@@ -35,10 +35,10 @@ int expandOnEmpty(int x, int y) {
   return x;
 }
 
-void checkEmpty() {
+void checkEmpty() { //function to activate all the segments around empty segments
   for (int x = 0; x * scale < width - scale; x++) {
-    for (int y = 0; y * scale < height - scale; y++) {
-      if (shownArray[x][y] == 12) {
+    for (int y = 0; y * scale < height - scale; y++) { //loops through every segment
+      if (shownArray[x][y] == 12) { //if that segment is empty
         expandOnEmpty(x, y);
         shownArray[x][y] = 0;
       }

@@ -17,7 +17,6 @@ int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
 
 int totalArea;
 int totalClicks;
-int currentClicks;
 
 void setVariablesOnStart() { 
   mine = loadImage("mine.png");
@@ -36,7 +35,6 @@ void resetVariables() {
   lose = false;
 
   currentMines = 0;
-  currentClicks = 0;
   
   for (int x = 0; x < segArray.length; x++) {
     for (int y = 0; y < segArray.length; y++) {
