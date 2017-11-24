@@ -65,7 +65,7 @@ void drawShapes() { //function to draw shapes
         fill(0);
         image(wrongFlag, i * scale, j * scale, scale, scale); //display an image of a flag with an X over it
       } else if (shownArray[i][j] == 0) { //sometimes the program leaves segments as 0, when they're supposed to 12 for the checkWin() function, this fixes that
-        shownArray[i][j] = 12; //FIX THIS THIS IS MAKING THE PROGRAM HEAVIER ON SYSTEM RESOURCES CHECK EMPTY SEGMENT FUNCTIONS FOR REASONS
+        shownArray[i][j] = 12;
       } else { //if the segment has no adjacent mines
         fill(255); //display a white segment
         rect(i * scale, j * scale, scale, scale);
