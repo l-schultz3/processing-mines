@@ -2,7 +2,7 @@ void setup() {
   setArrays();
   setVariablesOnStart();
   
-  size(321, 321); //segArray.length * scale + 1 it adds the one so that you can see the last line on the right
+  size(641, 641); //segArray.length * scale + 1 it adds the one so that you can see the last line on the right
   background(255);
   fill(0);
   textAlign(CENTER);

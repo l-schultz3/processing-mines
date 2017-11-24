@@ -27,7 +27,10 @@ void activeGameDraw() {
     onWin();
     
     resetGame();
-  } else if (lose) {
+  }
+  if (lose) {
+    win = false;
+    
     onLose();
     
     resetGame();
