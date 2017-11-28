@@ -60,7 +60,7 @@ int checkSegNonStart(int x, int y) { //function to run when a segment has been p
         expandOnEmpty(x, y);
         checkEmpty();
       } else if (shownArray[x][y] == 9) { //if that segment is a mine
-        shownArray[x][y] = 15;
+        shownArray[x][y] = 15; //sets that segment to display an image of a mine outlined in red
         lose = true; //set the game to the lose state
       }
     }

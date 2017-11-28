@@ -19,9 +19,9 @@ void draw() {
   }
 }
 
-void resetGame() {
-  if (keyPressed && key == ' ') {
-    resetVariables();
+void resetGame() { //function to theck if the player wants to play a new game
+  if (keyPressed && key == ' ') { //if the space key is pressed
+    resetVariables(); //resets the variables so that the game can be restarted
     drawShapes();
   }
 }

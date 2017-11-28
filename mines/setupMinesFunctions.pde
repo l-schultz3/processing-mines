@@ -79,7 +79,7 @@ int checkAdjacent(int tiley, int tilex) { //function to check how many mines are
     }
   }
   
-  if (segArray[tiley][tilex] == 0) {
+  if (segArray[tiley][tilex] == 0) { //this reserves 0 to be used by shownArray as the value of a segment that hasn't been changed or pressed
     segArray[tiley][tilex] = 12;
   }
   
