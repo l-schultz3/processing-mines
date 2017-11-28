@@ -3,7 +3,7 @@ PImage clickedMine;
 PImage flag;
 PImage wrongFlag;
 
-int scale = 40;
+int scale = 20;
 boolean pressed = false;
 boolean start = true;
 
