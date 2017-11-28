@@ -23,15 +23,16 @@ void activeGameDraw() {
   checkWin();
   checkEmpty();
   
-  if (win) {
-    onWin();
+  if (lose) {
+    win = false; //prevents bug where both the lose and the win screen display when the player has lost
+    
+    onLose();
     
     resetGame();
   }
-  if (lose) {
-    win = false;
-    
-    onLose();
+  
+  if (win) {
+    onWin();
     
     resetGame();
   }
