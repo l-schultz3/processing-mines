@@ -68,6 +68,8 @@ void drawShapes() { //function to draw shapes
         rect(i * scale, j * scale, scale, scale);
         fill(0);
         image(wrongFlag, i * scale, j * scale, scale, scale); //display an image of a flag with an X over it
+      } else if (shownArray[i][j] == 15) { //if that segment has been clicked, and is a mine
+        image(clickedMine, i * scale, j * scale, scale, scale); //display an image of a mine, with a red background
       } else if (shownArray[i][j] == 0) { //sometimes the program leaves segments as 0, when they're supposed to 12 for the checkWin() function, this fixes that
         shownArray[i][j] = 12;
       } else { //if the segment has no adjacent mines

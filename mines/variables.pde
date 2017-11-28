@@ -1,4 +1,5 @@
 PImage mine;
+PImage clickedMine;
 PImage flag;
 PImage wrongFlag;
 
@@ -20,6 +21,7 @@ int totalClicks;
 
 void setVariablesOnStart() { 
   mine = loadImage("mine.png");
+  clickedMine = loadImage("clickedMine.png");
   flag = loadImage("flag.png");
   wrongFlag = loadImage("wrongFlag.png");
   

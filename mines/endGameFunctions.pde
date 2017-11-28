@@ -15,6 +15,8 @@ void checkWin() {
 }
 
 void onWin() { //function to display win message
+  onEndDisplay();
+
   fill(0, 255, 0, 67);
   rect(0, 0, width, height); //draw a semi-transparent green rectangle over entire screen
   fill(0, 0, 0, 255);
@@ -25,15 +27,7 @@ void onWin() { //function to display win message
 }
 
 void onLose() { //function to display message and entire board when the player loses
-  for (int x = 0; x < shownArray.length; x++) {
-    for (int y = 0; y < shownArray.length; y++) { //loops through every segment
-      if (shownArray[x][y] == 11 && segArray[x][y] != 9) { //if the play flagged a segment that wasn't a mine
-        shownArray[x][y] = 14; //change that segment to the wrong flag image
-      } else if (shownArray[x][y] != 14) { //if that segment isn't showing the wrong flag image
-        shownArray[x][y] = segArray[x][y]; //set that segment to the master
-      }
-    }
-  }
+  onEndDisplay();
   
   fill(255, 0, 0, 67);
   rect(0, 0, width, height); //draw a semi-transparent red rectangle over entire screen
@@ -42,4 +36,16 @@ void onLose() { //function to display message and entire board when the player l
   textSize(scale * 3.45);
   text("SPACE\nTO\nRESTART", 0, 0, width, height); //shows text
   textSize(scale * 0.75);
+}
+
+void onEndDisplay() {
+  for (int x = 0; x < shownArray.length; x++) {
+    for (int y = 0; y < shownArray.length; y++) { //loops through every segment
+      if (shownArray[x][y] == 11 && segArray[x][y] != 9) { //if the play flagged a segment that wasn't a mine
+        shownArray[x][y] = 14; //change that segment to the wrong flag image
+      } else if (shownArray[x][y] != 14 && shownArray[x][y] != 15 ) { //if that segment isn't showing the wrong flag image
+        shownArray[x][y] = segArray[x][y]; //set that segment to the master
+      }
+    }
+  }
 }
