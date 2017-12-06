@@ -18,11 +18,11 @@ void onWin() { //function to display win message
   onEndDisplay();
 
   fill(0, 255, 0, 67);
-  rect(0, 0, width, height); //draw a semi-transparent green rectangle over entire screen
+  rect(0, 0, fieldWidth, fieldHeight); //draw a semi-transparent green rectangle over entire screen
   fill(0, 0, 0, 255);
   
   textSize(scale * 2.8);
-  text("YOU\nWIN!\nSPACE TO\nREPLAY", 0, 0, width, height); //shows text
+  text("YOU\nWIN!\nSPACE TO\nREPLAY", 0, 0, fieldWidth, fieldHeight); //shows text
   textSize(scale * 0.75);
 }
 
@@ -30,11 +30,11 @@ void onLose() { //function to display message and entire board when the player l
   onEndDisplay();
   
   fill(255, 0, 0, 67);
-  rect(0, 0, width, height); //draw a semi-transparent red rectangle over entire screen
+  rect(0, 0, fieldWidth, fieldHeight); //draw a semi-transparent red rectangle over entire screen
   fill(0, 0, 0, 255);
   
   textSize(scale * 3.45);
-  text("SPACE\nTO\nRESTART", 0, 0, width, height); //shows text
+  text("SPACE\nTO\nRESTART", 0, 0, fieldWidth, fieldHeight); //shows text
   textSize(scale * 0.75);
 }
 

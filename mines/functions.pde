@@ -1,6 +1,6 @@
 void checkSeg() { //function to check which segment has been pressed
-  for (int x = 0; x * scale < width; x++) {
-    for (int y = 0; y * scale < height; y++) { //loops through every segment
+  for (int x = 0; x * scale < fieldWidth; x++) {
+    for (int y = 0; y * scale < fieldHeight; y++) { //loops through every segment
       if ((mouseX > x * scale && mouseX < x * scale + scale) && (mouseY > y * scale && mouseY < y * scale + scale)) { //if that segment has the mouse over it (if that segment has been pressed)
         if (start) { //if the player hasn't pressed any segments yet (if the game has just started)
           checkSegStart(x, y);
@@ -20,7 +20,7 @@ int checkSegStart(int x, int y) { //function that sets up the field on the first
     if (x - 1 >= 0) {
       segArray[x - 1][y - 1] = 13;
     }
-    if (x + 1 < width / scale) {
+    if (x + 1 < fieldWidth / scale) {
       segArray[x + 1][y - 1] = 13;
     }
     
@@ -30,15 +30,15 @@ int checkSegStart(int x, int y) { //function that sets up the field on the first
   if (x - 1 >= 0) {
     segArray[x - 1][y] = 13;
   }
-  if (x + 1 < width / scale) {
+  if (x + 1 < fieldWidth / scale) {
     segArray[x + 1][y] = 13;
   }
   
-  if (y + 1 < height / scale) {
+  if (y + 1 < fieldHeight / scale) {
     if (x - 1 >= 0) {
       segArray[x - 1][y + 1] = 13;
     }
-    if (x + 1 < width / scale) {
+    if (x + 1 < fieldWidth / scale) {
       segArray[x + 1][y + 1] = 13;
     }
     

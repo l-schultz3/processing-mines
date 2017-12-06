@@ -3,7 +3,7 @@ PImage clickedMine;
 PImage flag;
 PImage wrongFlag;
 
-int scale = 20;
+//int scale = 20;
 boolean pressed = false;
 boolean start = true;
 
@@ -19,7 +19,15 @@ int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
 int totalArea;
 int totalClicks;
 
+int scale = width / segArray.length;
+
+int fieldWidth = segArray.length * scale;
+int fieldHeight = segArray.length * scale;
+int fieldX0;
+int fieldY0;
+
 void setVariablesOnStart() { 
+  
   mine = loadImage("mine.png");
   clickedMine = loadImage("clickedMine.png");
   flag = loadImage("flag.png");
@@ -27,6 +35,11 @@ void setVariablesOnStart() {
   
   totalArea = segArray.length * segArray[0].length;
   totalClicks = totalArea - maxMines;
+  
+  scale = width / segArray.length;
+
+  fieldWidth = segArray.length * scale;
+  fieldHeight = segArray.length * scale;
 }
 
 void resetVariables() { //function to reset the variables back to their defaults when the player wants to restart a game

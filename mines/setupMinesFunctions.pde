@@ -1,6 +1,6 @@
-void setArrays() { //function to set segArray and shownArray to the width and height of the play area (divided by scale, so it's the number of segments needed to fill play area)
-  for (int i = 0; i < width / scale; i++) {
-    for (int j = 0; j < width / scale; j++) { //loops through every segment
+void setArrays() { //function to set segArray and shownArray to the fieldWidth and fieldHeight of the play area (divided by scale, so it's the number of segments needed to fill play area)
+  for (int i = 0; i < fieldWidth / scale; i++) {
+    for (int j = 0; j < fieldHeight / scale; j++) { //loops through every segment
       segArray[i] = append(segArray[i], 0);
       shownArray[i] = append(shownArray[i], 10); //appened with 10 so that when the segments are drawn, they're dark grey to indicate they haven't been pressed
     }
@@ -44,7 +44,7 @@ int checkAdjacent(int tiley, int tilex) { //function to check how many mines are
     if (segArray[tiley-1][tilex] == 9) {
       segArray[tiley][tilex] += 1;
     }
-    if (tilex + 1 < width / scale) {
+    if (tilex + 1 < fieldWidth / scale) {
       if (segArray[tiley-1][tilex+1] == 9) {
         segArray[tiley][tilex] += 1;
       }
@@ -57,13 +57,13 @@ int checkAdjacent(int tiley, int tilex) { //function to check how many mines are
     }
   }
 
-  if (tilex + 1 < width / scale) {
+  if (tilex + 1 < fieldWidth / scale) {
     if (segArray[tiley][tilex+1] == 9) {
       segArray[tiley][tilex] += 1;
     }
   }
 
-  if (tiley + 1 < height / scale) {
+  if (tiley + 1 < fieldHeight / scale) {
     if (tilex - 1 >= 0) {
       if (segArray[tiley+1][tilex-1] == 9) {
         segArray[tiley][tilex] += 1;
@@ -72,7 +72,7 @@ int checkAdjacent(int tiley, int tilex) { //function to check how many mines are
     if (segArray[tiley+1][tilex] == 9) {
       segArray[tiley][tilex] += 1;
     }
-    if (tilex + 1 < width / scale) {
+    if (tilex + 1 < fieldWidth / scale) {
       if (segArray[tiley+1][tilex+1] == 9) {
         segArray[tiley][tilex] += 1;
       }

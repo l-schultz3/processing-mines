@@ -41,11 +41,11 @@ void activeGameDraw() {
 void drawShapes() { //function to draw shapes
   background(255); //resets the screen to be blank so that images and shapes aren't being placed over each other
   
-  for (int x = 0; x * scale < width; x++) { //these two loops draw the grid of lines. They are kept separate so that the playing field doesn't have to be square all the time
-    line(x * scale, 0, x * scale, height);
+  for (int x = 0; x * scale < fieldWidth; x++) { //these two loops draw the grid of lines. They are kept separate so that the playing field doesn't have to be square all the time
+    line(x * scale, 0, x * scale, fieldHeight);
   }
-  for (int y = 0; y * scale < width; y++) {
-    line(0, y * scale, width, y * scale);
+  for (int y = 0; y * scale < fieldHeight; y++) {
+    line(0, y * scale, fieldWidth, y * scale);
   }
   
   for (int i = 0; i < shownArray.length; i++) {
