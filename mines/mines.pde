@@ -2,7 +2,7 @@ void setup() {
   setArrays();
   setVariablesOnStart();
   
-  size(600, 800); //segArray.length * scale + 1 it adds the one so that you can see the last line on the right
+  size(300, 500); //segArray.length * scale + 1 it adds the one so that you can see the last line on the right
   background(255);
   fill(0);
   textAlign(CENTER);
@@ -20,8 +20,16 @@ void draw() {
 }
 
 void resetGame() { //function to theck if the player wants to play a new game
-  if (keyPressed && key == ' ') { //if the space key is pressed
-    resetVariables(); //resets the variables so that the game can be restarted
-    drawShapes();
+  if (mousePressed) { //if the space key is pressed
+    if (endGameClick) {
+      resetVariables(); //resets the variables so that the game can be restarted
+      drawShapes();
+    }
+  }
+}
+
+void mouseReleased() {
+  if (win || lose) {
+    endGameClick = true;
   }
 }

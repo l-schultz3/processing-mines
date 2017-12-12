@@ -22,7 +22,7 @@ void onWin() { //function to display win message
   fill(0, 0, 0, 255);
   
   textSize(scale * 2.8);
-  text("YOU\nWIN!\nSPACE TO\nREPLAY", 0, 0, fieldWidth, fieldHeight); //shows text
+  text("YOU\nWIN!\nCLICK TO\nREPLAY", 0, 0, fieldWidth, fieldHeight); //shows text
   textSize(scale * 0.75);
 }
 
@@ -34,7 +34,7 @@ void onLose() { //function to display message and entire board when the player l
   fill(0, 0, 0, 255);
   
   textSize(scale * 3.45);
-  text("SPACE\nTO\nRESTART", 0, 0, fieldWidth, fieldHeight); //shows text
+  text("CLICK\nTO\nRESTART", 0, 0, fieldWidth, fieldHeight); //shows text
   textSize(scale * 0.75);
 }
 

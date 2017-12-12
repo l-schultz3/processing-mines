@@ -9,6 +9,7 @@ boolean start = true;
 
 boolean win = false;
 boolean lose = false;
+boolean endGameClick = false;
 
 int maxMines = 40;
 int currentMines = 0;
@@ -48,6 +49,7 @@ void resetVariables() { //function to reset the variables back to their defaults
 
   win = false;
   lose = false;
+  endGameClick = false;
 
   currentMines = 0;
   
