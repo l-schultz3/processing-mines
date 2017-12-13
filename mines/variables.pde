@@ -20,10 +20,10 @@ int[][] shownArray = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
 int totalArea;
 int totalClicks;
 
-int scale = width / segArray.length;
+int scale = 50;
 
-int fieldWidth = segArray.length * scale;
-int fieldHeight = segArray.length * scale;
+int fieldWidth = 16 * scale;
+int fieldHeight = 16 * scale;
 int fieldX0;
 int fieldY0;
 
@@ -37,10 +37,10 @@ void setVariablesOnStart() {
   totalArea = segArray.length * segArray[0].length;
   totalClicks = totalArea - maxMines;
   
-  scale = width / segArray.length;
-
-  fieldWidth = segArray.length * scale;
-  fieldHeight = segArray.length * scale;
+  scale = width / 16;
+  
+  fieldWidth = 16 * scale;
+  fieldHeight = 16 * scale;
 }
 
 void resetVariables() { //function to reset the variables back to their defaults when the player wants to restart a game

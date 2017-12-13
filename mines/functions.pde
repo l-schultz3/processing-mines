@@ -53,7 +53,7 @@ int checkSegStart(int x, int y) { //function that sets up the field on the first
 }
 
 int checkSegNonStart(int x, int y) { //function to run when a segment has been pressed, and the field has been setup
-  if (mouseButton == LEFT) { //if the left button has been pressed, meaning they want to reveal that segment
+  //if (mouseButton == LEFT) { //if the left button has been pressed, meaning they want to reveal that segment
     if (shownArray[x][y] != 11) { //if that tile hasn't been flagged
       shownArray[x][y] = segArray[x][y]; //set the displayed segment to the master
       if (shownArray[x][y] == 12) { //if that segment is empty run the functions to deal with it
@@ -64,12 +64,12 @@ int checkSegNonStart(int x, int y) { //function to run when a segment has been p
         lose = true; //set the game to the lose state
       }
     }
-  } else { //if the right button has been pressed, meaning they want to flag that statement
+  /*} else { //if the right button has been pressed, meaning they want to flag that statement
     if (shownArray[x][y] == 10) { //if that segment hasn't been revealed
       shownArray[x][y] = 11; //flag that segment
     } else if (shownArray[x][y] == 11) { //if that segment has been flagged
       shownArray[x][y] = 10; //unflag that segment
     }
-  }
+  }*/
   return x;
 }

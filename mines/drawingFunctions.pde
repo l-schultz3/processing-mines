@@ -1,5 +1,5 @@
 void startGameDraw() {
-  if (mousePressed && (mouseButton == LEFT)) {
+  if (mousePressed) {// && (mouseButton == LEFT)) {
     if (!pressed) {
       checkSeg();
       drawShapes();

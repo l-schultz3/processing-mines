@@ -1,8 +1,14 @@
+import ketai.ui.*;
+
 void setup() {
+  print(str(width / 16));
+  
   setArrays();
   setVariablesOnStart();
   
-  size(300, 500); //segArray.length * scale + 1 it adds the one so that you can see the last line on the right
+  //size(300, 500); //segArray.length * scale + 1 it adds the one so that you can see the last line on the right
+  //orientation(PORTRAIT);
+  //fullScreen();
   background(255);
   fill(0);
   textAlign(CENTER);
