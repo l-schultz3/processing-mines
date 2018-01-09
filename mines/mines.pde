@@ -25,3 +25,23 @@ void resetGame() { //function to theck if the player wants to play a new game
     drawShapes();
   }
 }
+
+void checkError() {
+  print("\n\n\n\n");
+  
+  for (int i = 0; i < segArray.length; i++) {
+    for (int j = 0; j < segArray[i].length; j++) { //loops through every segment
+      if ((shownArray[i][j] == 12 || shownArray[i][j] == 0)) {
+        
+      } else {
+        print("\nbreak");
+        
+        break;
+      }
+    }
+      
+    if (i == segArray.length) {
+      print("ERROR");
+    }
+  }
+}

@@ -11,6 +11,8 @@ void startGameDraw() {
 
 void activeGameDraw() {
   if (mousePressed) {
+    checkError();
+    
     if (!pressed) {
       checkSeg();   
       drawShapes();
